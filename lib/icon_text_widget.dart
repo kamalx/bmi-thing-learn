@@ -21,7 +21,7 @@ class IconTextWidget extends StatelessWidget {
         ),
         Text(
           label.toUpperCase(),
-          style: LABEL_TEXT_STYLE,
+          style: k_LABEL_TEXT_STYLE,
         ),
       ],
     );

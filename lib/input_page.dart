@@ -40,8 +40,9 @@ class _InputPageState extends State<InputPage> {
                         print(gender);
                       });
                     },
-                    colour:
-                        gender == GenderType.boy ? ACTIVE_CARD : INACTIVE_CARD,
+                    colour: gender == GenderType.boy
+                        ? k_ACTIVE_CARD
+                        : k_INACTIVE_CARD,
                     cardChild: IconTextWidget(
                       label: 'boy',
                       icon: FontAwesomeIcons.mars,
@@ -56,8 +57,9 @@ class _InputPageState extends State<InputPage> {
                         print(gender);
                       });
                     },
-                    colour:
-                        gender == GenderType.girl ? ACTIVE_CARD : INACTIVE_CARD,
+                    colour: gender == GenderType.girl
+                        ? k_ACTIVE_CARD
+                        : k_INACTIVE_CARD,
                     cardChild: IconTextWidget(
                       label: 'girl',
                       icon: FontAwesomeIcons.venus,
@@ -71,7 +73,7 @@ class _InputPageState extends State<InputPage> {
             child: FiddleCard(
               onPress: () {},
               cardChild: Text('height'),
-              colour: ACTIVE_CARD,
+              colour: k_ACTIVE_CARD,
             ),
           ),
           Expanded(
@@ -80,23 +82,23 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                   child: FiddleCard(
                     onPress: () {},
-                    colour: ACTIVE_CARD,
+                    colour: k_ACTIVE_CARD,
                   ),
                 ),
                 Expanded(
                   child: FiddleCard(
                     onPress: () {},
-                    colour: ACTIVE_CARD,
+                    colour: k_ACTIVE_CARD,
                   ),
                 ),
               ],
             ),
           ),
           Container(
-            color: CTA_COLOR,
+            color: k_CTA_COLOR,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
-            height: CTA_HEIGHT,
+            height: k_CTA_HEIGHT,
           ),
         ],
       ),
