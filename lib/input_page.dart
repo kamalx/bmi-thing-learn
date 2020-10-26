@@ -1,12 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:bmi_calculator/fiddle_card.dart';
-import 'package:bmi_calculator/icon_text_widget.dart';
+import 'fiddle_card.dart';
+import 'icon_text_widget.dart';
+import 'constants.dart';
 
-const CARD_COLOR = 0XFF1D1E33;
-const CTA_COLOR = 0xFFEB1555;
-const CTA_HEIGHT = 80.0;
+enum GenderType {
+  male,
+  female,
+  boy,
+  girl,
+  fluid,
+}
 
 class InputPage extends StatefulWidget {
   @override
@@ -14,6 +18,8 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  GenderType gender;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,44 +28,72 @@ class _InputPageState extends State<InputPage> {
         centerTitle: true,
       ),
       body: Column(
-        children: [
+        children: <Widget>[
           Expanded(
             child: Row(
-              children: [
-                FiddleCard(
-                  colour: Color(CARD_COLOR),
-                  cardChild: IconTextWidget(
-                    label: 'boy',
-                    icon: FontAwesomeIcons.mars,
+              children: <Widget>[
+                Expanded(
+                  child: FiddleCard(
+                    onPress: () {
+                      setState(() {
+                        gender = GenderType.boy;
+                        print(gender);
+                      });
+                    },
+                    colour:
+                        gender == GenderType.boy ? ACTIVE_CARD : INACTIVE_CARD,
+                    cardChild: IconTextWidget(
+                      label: 'boy',
+                      icon: FontAwesomeIcons.mars,
+                    ),
                   ),
                 ),
-                FiddleCard(
-                  colour: Color(CARD_COLOR),
-                  cardChild: IconTextWidget(
-                    label: 'girl',
-                    icon: FontAwesomeIcons.venus,
+                Expanded(
+                  child: FiddleCard(
+                    onPress: () {
+                      setState(() {
+                        gender = GenderType.girl;
+                        print(gender);
+                      });
+                    },
+                    colour:
+                        gender == GenderType.girl ? ACTIVE_CARD : INACTIVE_CARD,
+                    cardChild: IconTextWidget(
+                      label: 'girl',
+                      icon: FontAwesomeIcons.venus,
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          FiddleCard(
-            colour: Color(CARD_COLOR),
+          Expanded(
+            child: FiddleCard(
+              onPress: () {},
+              cardChild: Text('height'),
+              colour: ACTIVE_CARD,
+            ),
           ),
           Expanded(
             child: Row(
-              children: [
-                FiddleCard(
-                  colour: Color(CARD_COLOR),
+              children: <Widget>[
+                Expanded(
+                  child: FiddleCard(
+                    onPress: () {},
+                    colour: ACTIVE_CARD,
+                  ),
                 ),
-                FiddleCard(
-                  colour: Color(CARD_COLOR),
+                Expanded(
+                  child: FiddleCard(
+                    onPress: () {},
+                    colour: ACTIVE_CARD,
+                  ),
                 ),
               ],
             ),
           ),
           Container(
-            color: Color(CTA_COLOR),
+            color: CTA_COLOR,
             margin: EdgeInsets.only(top: 10.0),
             width: double.infinity,
             height: CTA_HEIGHT,

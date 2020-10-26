@@ -1,17 +1,20 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class FiddleCard extends StatelessWidget {
   FiddleCard({
+    @required this.onPress,
     @required this.colour,
     this.cardChild,
   });
 
   final Color colour;
   final Widget cardChild;
+  final Function onPress;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return GestureDetector(
+      onTap: onPress,
       child: Container(
         child: cardChild,
         margin: EdgeInsets.all(6),

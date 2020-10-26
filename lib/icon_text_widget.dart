@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
-
-const LABEL_TEXT_STYLE = TextStyle(
-  fontSize: 18,
-  color: Color(0xFFD8DE98),
-);
+import 'package:flutter/material.dart';
+import 'constants.dart';
 
 class IconTextWidget extends StatelessWidget {
   IconTextWidget({@required this.icon, @required this.label});
