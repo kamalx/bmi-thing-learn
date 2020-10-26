@@ -97,22 +97,24 @@ class _InputPageState extends State<InputPage> {
                     ],
                   ),
                   SliderTheme(
-                    data: SliderTheme.of(context).copyWith(
-                        activeTrackColor: Colors.white,
-                        thumbColor: Color(0xFFEB1555),
-                        overlayColor: Color(0x29FB65A5),
-                        thumbShape: RoundSliderThumbShape(
-                          enabledThumbRadius: 15.0,
-                        ),
-                        overlayShape: RoundSliderOverlayShape(
-                          overlayRadius: 26.0,
-                        )),
+                    data: SliderThemeData(
+                      activeTrackColor: Colors.white,
+                      thumbColor: Color(0xFFEB1555),
+                      overlayColor: Color(0x29FB65A5),
+                      thumbShape: RoundSliderThumbShape(
+                        enabledThumbRadius: 15.0,
+                      ),
+                      overlayShape: RoundSliderOverlayShape(
+                        overlayRadius: 26.0,
+                      ),
+                    ),
                     child: Slider(
-                      value: height.toDouble(),
-                      min: k_MIN_HEIGHT,
-                      max: k_MAX_HEIGHT,
+                      value: height.toDouble(), // this is just initialisation
+                      min: k_MIN_HEIGHT_VALUE,
+                      max: k_MAX_HEIGHT_VALUE,
                       inactiveColor: Color(0xFFF8D8E98),
                       onChanged: (double newValue) {
+                        print(newValue);
                         setState(() {
                           height = newValue.round();
                         });
