@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'fiddle_card.dart';
@@ -20,6 +21,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   GenderType gender;
   int height = 150;
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -134,6 +136,41 @@ class _InputPageState extends State<InputPage> {
                   child: FiddleCard(
                     onPress: () {},
                     colour: k_ACTIVE_CARD,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'WEIGHT',
+                          style: k_LABEL_TEXT_STYLE,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: k_LABEL_NUMBER_TEXT_STYLE,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundActionButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  weight--;
+                                });
+                              },
+                            ),
+                            SizedBox(width: 10),
+                            RoundActionButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  weight++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 Expanded(
@@ -153,6 +190,30 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundActionButton extends StatelessWidget {
+  RoundActionButton({@required this.icon, @required this.onPressed});
+
+  final IconData icon;
+  final Function onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      child: Icon(
+        icon,
+      ),
+      shape: CircleBorder(),
+      fillColor: k_ACTION_BUTTON_COLOR,
+      constraints: BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
+      ),
+      elevation: 0.0,
+      onPressed: onPressed,
     );
   }
 }
