@@ -99,8 +99,9 @@ class _InputPageState extends State<InputPage> {
                   SliderTheme(
                     data: SliderThemeData(
                       activeTrackColor: Colors.white,
+                      inactiveTrackColor: Color(0xFFF8D8E98),
                       thumbColor: Color(0xFFEB1555),
-                      overlayColor: Color(0x29FB65A5),
+                      overlayColor: Color(0x1FFB65A5),
                       thumbShape: RoundSliderThumbShape(
                         enabledThumbRadius: 15.0,
                       ),
@@ -112,7 +113,7 @@ class _InputPageState extends State<InputPage> {
                       value: height.toDouble(), // this is just initialisation
                       min: k_MIN_HEIGHT_VALUE,
                       max: k_MAX_HEIGHT_VALUE,
-                      inactiveColor: Color(0xFFF8D8E98),
+
                       onChanged: (double newValue) {
                         print(newValue);
                         setState(() {
