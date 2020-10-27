@@ -230,17 +230,15 @@ class _InputPageState extends State<InputPage> {
                 weight: weight,
               );
 
-              Navigator.push(
+              Navigator.pushNamed(
                 context,
-                MaterialPageRoute(
-                  builder: (context) => ResultsPage(
-                    bmiResult: calc.calculateBMI(),
-                    resultText: calc.getResult(),
-                    interpretation: calc.getInterpretation(),
-                  ),
+                ResultsPage.routeName,
+                arguments: ResultArguments(
+                  bmiResult: calc.calculateBMI(),
+                  resultText: calc.getResult(),
+                  interpretation: calc.getInterpretation(),
                 ),
               );
-              // Navigator.pushNamed(context, '/results');
             },
           ),
         ],

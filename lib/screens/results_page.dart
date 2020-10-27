@@ -4,18 +4,13 @@ import 'package:bmi_calculator/components/fiddle_card.dart';
 import 'package:bmi_calculator/components/cta_button.dart';
 
 class ResultsPage extends StatelessWidget {
-  ResultsPage({
-    @required this.bmiResult,
-    @required this.resultText,
-    @required this.interpretation,
-  });
-
-  final String bmiResult;
-  final String resultText;
-  final String interpretation;
+  static const routeName = '/results';
 
   @override
   Widget build(BuildContext context) {
+    print(ModalRoute.of(context).settings);
+
+    final ResultArguments args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
       appBar: AppBar(
         title: Text('BMI RESULTS'),
@@ -45,15 +40,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    resultText.toUpperCase(),
+                    args.resultText.toUpperCase(),
                     style: k_RESULT_TEXT_STYLE,
                   ),
                   Text(
-                    bmiResult,
+                    args.bmiResult,
                     style: k_BMI_TEXT_STYLE,
                   ),
                   Text(
-                    interpretation,
+                    args.interpretation,
                     textAlign: TextAlign.center,
                     style: k_ADVICE_TEXT_STYLE,
                   )
@@ -71,4 +66,16 @@ class ResultsPage extends StatelessWidget {
       ),
     );
   }
+}
+
+class ResultArguments {
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  ResultArguments({
+    @required this.bmiResult,
+    @required this.resultText,
+    @required this.interpretation,
+  });
 }
