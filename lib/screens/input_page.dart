@@ -1,9 +1,13 @@
+import 'package:bmi_calculator/bmi_engine.dart';
+import 'package:bmi_calculator/screens/results_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'fiddle_card.dart';
-import 'icon_text_widget.dart';
-import 'constants.dart';
+import 'package:bmi_calculator/components/fiddle_card.dart';
+import 'package:bmi_calculator/icon_text_widget.dart';
+import 'package:bmi_calculator/constants.dart';
+import 'package:bmi_calculator/components/cta_button.dart';
+import 'package:bmi_calculator/components/round_action_button.dart';
 
 enum GenderType {
   male,
@@ -118,7 +122,7 @@ class _InputPageState extends State<InputPage> {
                       max: k_MAX_HEIGHT_VALUE,
 
                       onChanged: (double newValue) {
-                        print(newValue);
+                        // print(newValue);
                         setState(() {
                           height = newValue.round();
                         });
@@ -218,52 +222,29 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          CTAButton(
+            buttonTitle: 'calculate',
             onTap: () {
-              setState(() {
-                Navigator.pushNamed(context, '/results');
-              });
-            },
-            child: Container(
-              child: Center(
-                child: Text(
-                  'CALCULATE',
-                  style: k_CTA_TEXT_STYLE,
+              BMIEngine calc = BMIEngine(
+                height: height,
+                weight: weight,
+              );
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    bmiResult: calc.calculateBMI(),
+                    resultText: calc.getResult(),
+                    interpretation: calc.getInterpretation(),
+                  ),
                 ),
-              ),
-              color: k_CTA_COLOR,
-              margin: EdgeInsets.only(top: 10.0),
-              // padding: EdgeInsets.only(bottom: 20.0), // doesn't work on apna platform, but perhaps required for the modern iPhones.
-              width: double.infinity,
-              height: k_CTA_HEIGHT,
-            ),
+              );
+              // Navigator.pushNamed(context, '/results');
+            },
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundActionButton extends StatelessWidget {
-  RoundActionButton({@required this.icon, @required this.onPressed});
-
-  final IconData icon;
-  final Function onPressed;
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      child: Icon(
-        icon,
-      ),
-      shape: CircleBorder(),
-      fillColor: k_ACTION_BUTTON_COLOR,
-      constraints: BoxConstraints.tightFor(
-        width: 56.0,
-        height: 56.0,
-      ),
-      elevation: 0.0,
-      onPressed: onPressed,
     );
   }
 }

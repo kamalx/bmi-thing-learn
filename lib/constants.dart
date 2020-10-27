@@ -15,6 +15,27 @@ const k_CTA_TEXT_STYLE = TextStyle(
   fontWeight: FontWeight.w900,
 );
 
+const k_TITLE_TEXT_STYLE = TextStyle(
+  fontSize: 42.0,
+  fontWeight: FontWeight.w600,
+);
+
+const k_RESULT_TEXT_STYLE = TextStyle(
+  fontSize: 22,
+  color: Color(0xFF24D876),
+  fontWeight: FontWeight.w800,
+);
+
+const k_ADVICE_TEXT_STYLE = TextStyle(
+  fontSize: 22.0,
+  color: Color(0x69FFFFFF),
+);
+
+const k_BMI_TEXT_STYLE = TextStyle(
+  fontSize: 80.0,
+  fontWeight: FontWeight.w900,
+);
+
 const k_CTA_HEIGHT = 80.0;
 const k_ACTIVE_CARD = Color(0xFF1D1E33);
 const k_INACTIVE_CARD = Color(0xFF111328);
