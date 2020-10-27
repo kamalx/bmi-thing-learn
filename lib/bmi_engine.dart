@@ -26,11 +26,13 @@ class BMIEngine {
 
   String getInterpretation() {
     if (_bmi > 25) {
-      return 'motey kam kha. aur exercise bhi kar.';
+      return 'You have higher than healthy body weight.' +
+          'Try exercising more.';
     } else if (_bmi > 18.5) {
-      return 'theek hai weight. aur exercise karte reh.';
+      return 'Your body weight is in the healthy range. Good job!';
     } else {
-      return 'sukkhhad, thoda zada kha. aur thoda exercise karte reh.';
+      return 'You have lower than healthy body weight.' +
+          'Try eating more. Also, do exercise a bit.';
     }
   }
 }
