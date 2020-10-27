@@ -4,7 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:bmi_calculator/components/fiddle_card.dart';
-import 'package:bmi_calculator/icon_text_widget.dart';
+import 'package:bmi_calculator/components/icon_text_widget.dart';
 import 'package:bmi_calculator/constants.dart';
 import 'package:bmi_calculator/components/cta_button.dart';
 import 'package:bmi_calculator/components/round_action_button.dart';
