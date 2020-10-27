@@ -22,6 +22,7 @@ class _InputPageState extends State<InputPage> {
   GenderType gender;
   int height = 150;
   int weight = 60;
+  int age = 16;
 
   @override
   Widget build(BuildContext context) {
@@ -177,16 +178,65 @@ class _InputPageState extends State<InputPage> {
                   child: FiddleCard(
                     onPress: () {},
                     colour: k_ACTIVE_CARD,
+                    cardChild: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'AGE',
+                          style: k_LABEL_TEXT_STYLE,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: k_LABEL_NUMBER_TEXT_STYLE,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundActionButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () {
+                                setState(() {
+                                  age--;
+                                });
+                              },
+                            ),
+                            SizedBox(width: 10),
+                            RoundActionButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () {
+                                setState(() {
+                                  age++;
+                                });
+                              },
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
-          Container(
-            color: k_CTA_COLOR,
-            margin: EdgeInsets.only(top: 10.0),
-            width: double.infinity,
-            height: k_CTA_HEIGHT,
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                Navigator.pushNamed(context, '/results');
+              });
+            },
+            child: Container(
+              child: Center(
+                child: Text(
+                  'CALCULATE',
+                  style: k_CTA_TEXT_STYLE,
+                ),
+              ),
+              color: k_CTA_COLOR,
+              margin: EdgeInsets.only(top: 10.0),
+              // padding: EdgeInsets.only(bottom: 20.0), // doesn't work on apna platform, but perhaps required for the modern iPhones.
+              width: double.infinity,
+              height: k_CTA_HEIGHT,
+            ),
           ),
         ],
       ),
