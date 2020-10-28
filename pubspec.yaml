@@ -1,4 +1,4 @@
-name: BMiCalc
+name: bmi_calculator
 description: A (very) simple BMI Calculator app.
 
 version: 1.2.0+1
