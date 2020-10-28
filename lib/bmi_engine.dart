@@ -27,12 +27,12 @@ class BMIEngine {
   String getInterpretation() {
     if (_bmi > 25) {
       return 'You have higher than healthy body weight.' +
-          'Try exercising more.';
+          'Try exercising more. 🏋🏽';
     } else if (_bmi > 18.5) {
-      return 'Your body weight is in the healthy range. Good job!';
+      return 'Your body weight is in the healthy range. Good job! 💖';
     } else {
       return 'You have lower than healthy body weight.' +
-          'Try eating more. Also, do exercise a bit.';
+          'Try eating more. Also, do exercise a bit. 🍔';
     }
   }
 }
