@@ -8,7 +8,7 @@ class ResultsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(ModalRoute.of(context).settings);
+    // print(ModalRoute.of(context).settings);
 
     final ResultArguments args = ModalRoute.of(context).settings.arguments;
     return Scaffold(
